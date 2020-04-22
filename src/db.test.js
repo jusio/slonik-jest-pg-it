@@ -20,11 +20,21 @@ describe('dbtests', () => {
       test('insert works ' + i, async () => {
         await pool.query(
           sql`insert into MY_TABLE(id, data)
-              VALUES ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null)`
+              VALUES ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null)
+              `
         );
         expect(
           (await pool.query(sql`select count(*) from my_table`)).rows[0].count
-        ).toBe(1);
+        ).toBe(10);
       });
     }
   });
@@ -38,12 +48,21 @@ describe('dbtests', () => {
       test('slow insert works ' + i, async () => {
         await pool.query(
           sql`insert into MY_TABLE(id, data)
-              VALUES ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null)`
+              VALUES ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null)`
         );
 
         expect(
           (await pool.query(sql`select count(*) from my_table`)).rows[0].count
-        ).toBe(1);
+        ).toBe(10);
       });
     }
     afterEach(async () => {
