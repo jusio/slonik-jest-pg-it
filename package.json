@@ -1,0 +1,25 @@
+{
+  "name": "pgtest",
+  "version": "1.0.0",
+  "description": "empty description",
+  "repository": "local",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.1",
+    "babel-jest": "^25.3.0",
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "slonik": "^22.4.4"
+  }
+}
