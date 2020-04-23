@@ -29,45 +29,12 @@ describe('dbtests', () => {
                      ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
                      ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
                      ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null)
-              `
+                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null)              `
         );
         expect(
           (await pool.query(sql`select count(*) from my_table`)).rows[0].count
-        ).toBe(10);
+        ).toBe(9);
       });
     }
-  });
-
-  describe.skip('slowtest using autocommit', () => {
-    const pool = db.pool;
-    beforeEach(async () => {
-      await pool.query(sql`TRUNCATE MY_TABLE`);
-    });
-    for (let i = 0; i < 100; i++) {
-      test('slow insert works ' + i, async () => {
-        await pool.query(
-          sql`insert into MY_TABLE(id, data)
-              VALUES ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null),
-                     ('e2fa6de7-b23c-4daf-bfca-3e34b521af37', null)`
-        );
-
-        expect(
-          (await pool.query(sql`select count(*) from my_table`)).rows[0].count
-        ).toBe(10);
-      });
-    }
-    afterEach(async () => {
-      await pool.query(sql`TRUNCATE MY_TABLE`);
-    });
   });
 });
