@@ -1,13 +1,11 @@
 const db = require('./db');
 const { sql } = require('slonik');
-
 beforeAll(async () => {
   await db.pool.query(
     sql`CREATE TABLE IF NOT EXISTS my_table(id uuid,data jsonb)`
   );
 });
-
-describe('dbtests', () => {
+describe('dbtests2', () => {
   describe('fast test using transaction rollback', () => {
     let pool;
     beforeEach(async () => {

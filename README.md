@@ -8,6 +8,6 @@ The fastest approach is to run every test in a single
  Once specific test is done, transaction is rollbacked.
  
  To run the examples, launch
- `./db.sh` to start docker with postgres and `jest` to launch the tests
+ `./db.sh` to start docker with postgres and `npm test` to launch the tests
  
   
